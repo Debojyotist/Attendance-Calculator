@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="attendance.css">
+  <title>Attendance Calculator</title>
+</head>
+<body>
+  <div class="header-bar">
+  <h1>📅 Attendance Calculator</h1>
+    <div class="theme-toggle">
+      <label for="theme-switch" id="theme-icon">🌙</label>
+      <label class="switch">
+        <input type="checkbox" id="theme-switch" />
+        <span class="slider"></span>
+      </label>
+    </div>
+  </div>
+
+  <div class="calculator">
+    <div class="form-group">
+      <label for="required">Required Attendance %:</label>
+      <input type="number" id="required" placeholder="e.g., 75" />
+    </div>
+
+    <div class="form-group">
+      <label>Provide current attendance as:</label>
+      <select id="attendance-mode">
+        <option value="percent">Percentage</option>
+        <option value="days">Number of Days</option>
+      </select>
+    </div>
+
+    <div class="form-group" id="percent-input">
+      <label for="current-percent">Current Attendance %:</label>
+      <input type="number" id="current-percent" placeholder="e.g., 60" />
+    </div>
+
+    <div class="form-group" id="days-input" style="display: none;">
+      <label for="days-attended">Days Attended So Far:</label>
+      <input type="number" id="days-attended" placeholder="e.g., 90" />
+    </div>
+
+    <div class="form-group">
+      <label for="working-left">Working Days Left:</label>
+      <input type="number" id="working-left" placeholder="e.g., 30" />
+    </div>
+
+    <div class="form-group">
+      <label for="total-working">Total Working Days:</label>
+      <input type="number" id="total-working" placeholder="e.g., 120" />
+    </div>
+
+    <button onclick="calculateAttendance()">🧮 Calculate</button>
+
+    <div class="result" id="result"></div>
+    <div class="instructions">
+      <p>Ensure all inputs are accurate. The result will indicate whether the target attendance is achievable and how many of the remaining days must be attended.</p>
+    </div>
+  </div>
+
+  <script src="attendace.js"></script>
+</body>
+</html>

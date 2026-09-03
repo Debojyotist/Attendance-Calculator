@@ -1,0 +1,214 @@
+:root {
+      --bg-color: #e0f7fa;
+      --text-color: #004d40;
+      --primary-color: #00796b;
+      --secondary-color: #ffffff;
+      --input-border: #b2ebf2;
+    }
+
+    body.dark-mode {
+      --bg-color: #263238;
+      --text-color: #e0f7fa;
+      --primary-color: #00bcd4;
+      --secondary-color: #37474f;
+      --input-border: #4dd0e1;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      color: var(--text-color);
+    }
+
+    h1 {
+      margin-bottom: 1.5rem;
+      text-align: center;
+      font-size: 1.8rem;
+      animation: fadeInDown 1s ease-in-out;
+    }
+
+    @keyframes fadeInDown {
+      0% { opacity: 0; transform: translateY(-20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .header-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      max-width: 500px;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+   .theme-toggle {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .calculator {
+      background-color: var(--secondary-color);
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 500px;
+      animation: fadeInUp 1s ease-in-out;
+      display: flex;
+      flex-direction: column;
+    }
+
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .form-group {
+      margin-bottom: 1.25rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+    }
+
+    input, select {
+      padding: 0.75rem;
+      border: 1px solid var(--input-border);
+      border-radius: 0.5rem;
+      background: transparent;
+      color: var(--text-color);
+      font-size: 1rem;
+    }
+
+    input:focus, select:focus {
+      border-color: var(--primary-color);
+      outline: none;
+    }
+
+    button {
+      background-color: var(--primary-color);
+      color: #ffffff;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      width: 100%;
+      font-size: 1rem;
+      transition: background 0.3s ease;
+      margin-top: 0.5rem;
+    }
+
+    button:hover {
+      background-color: var(--text-color);
+    }
+
+    .result {
+      margin-top: 1rem;
+      font-size: 1rem;
+    }
+
+    .instructions {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 50px;
+      height: 24px;
+    }
+
+    .switch input { display: none; }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0; left: 0;
+      right: 0; bottom: 0;
+      background-color: #ccc;
+      transition: .4s;
+      border-radius: 24px;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 18px;
+      width: 18px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: .4s;
+      border-radius: 50%;
+    }
+
+    input:checked + .slider {
+      background-color: var(--primary-color);
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(26px);
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 1rem;
+      }
+
+      .calculator {
+        padding: 1.25rem;
+      }
+
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      label, input, select, button {
+        font-size: 1rem;
+      }
+
+      .instructions {
+        font-size: 0.85rem;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .theme-toggle {
+        top: 0.5rem;
+        right: 0.5rem;
+        flex-direction: row;
+      }
+
+      .switch {
+        width: 44px;
+        height: 20px;
+      }
+
+      .slider:before {
+        height: 16px;
+        width: 16px;
+      }
+
+      input:checked + .slider:before {
+        transform: translateX(22px);
+      }
+    }
